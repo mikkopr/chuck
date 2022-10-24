@@ -7,6 +7,7 @@ import axios from 'axios';
 const initialState = {
     joke:{},
     fetchJoke: false,
+    fetchingJoke: false,
     failedToFetchJoke: false,
 };
 
@@ -17,13 +18,13 @@ function reducer(state, action) {
             return {...state, fetchJoke: true, failedToFetchJoke: false};
         case 'STARTED_TO_FETCH_JOKE':
             console.log('STARTED_TO_FETCH_JOKE');
-            return {...state, fetchJoke: false, failedToFetchJoke: false};
+            return {...state, fetchJoke: false, fetchingJoke: true, failedToFetchJoke: false};
         case 'JOKE_RECEIVED':
             console.log('JOKE_RECEIVED');
-            return {...state, joke: action.payload, failedToFetchJoke: false};
+            return {...state, joke: action.payload, fetchingJoke: false, failedToFetchJoke: false};
         case 'FAILED_TO_FETCH_JOKE':
             console.log('FAILED_TO_FETCH_JOKE');
-            return {...state, errorMessage: action.payload, failedToFetchJoke: true};
+            return {...state, errorMessage: action.payload, fetchingJoke: false, failedToFetchJoke: true};
         default:
         throw new Error("Action.type kentän arvoa ei tunnistettu");
     }
