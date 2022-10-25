@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import ChuckApp_1 from './ChuckApp_1';
 import ChuckApp_2 from './ChuckApp_2';
+import ChuckApp_3 from './ChuckApp_3';
 
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 //  <React.StrictMode>
-    <ChuckApp_2 />
+    <ChuckApp_3 />
 //  </React.StrictMode>
 );
 
